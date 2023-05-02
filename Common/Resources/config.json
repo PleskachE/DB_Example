@@ -1,0 +1,3 @@
+{
+  "connectionString": "Port=3306;Server=127.0.0.1;Database=union_reporting;user=root"
+}
