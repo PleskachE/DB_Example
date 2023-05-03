@@ -1,0 +1,5 @@
+Total test execution time:
+
+1. - standard connector + self-written model parser - 2 tests for 288 ms.
+2. - ORM Dapper - 2 tests in 312ms.
+3. - ORM EntityFrameworkCore - 2 tests for 1s (three times slower than the previous ones).
