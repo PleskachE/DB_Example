@@ -17,12 +17,10 @@ namespace DB_Example.Utils
             if (_instance == null)
             {
                 _instance = new MyDbExecuter();
-                _connection = new MySqlConnection();
-                _connection.ConnectionString = Configuration.ConnectionString;
+                _connection = new MySqlConnection(Configuration.ConnectionString);
             }
             return _instance;
         }
-
         public void ExecuteCommandInput(string sqlQuery)
         {
             _connection.Open();
