@@ -15,5 +15,7 @@ namespace DapperExample.Models.DbModel
         public string env { get; set; }
         public string browser { get; set; }
         public long? author_id { get; set; }
+
+        public virtual Author Author { get; set; }
     }
 }

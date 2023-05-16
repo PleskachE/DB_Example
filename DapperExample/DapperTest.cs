@@ -3,6 +3,7 @@ using DapperExample.Models.DbModel;
 using DapperExample.Utils;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace DapperExample
 {
@@ -11,8 +12,18 @@ namespace DapperExample
         [Test]
         public void DapperTest()
         {
+            var sql = "SELECT * FROM test JOIN author ON test.author_id = author.id WHERE author.email = '{0}' ORDER BY test.name, author.email;";
+            var tests = ComplexQueryExample(string.Format(sql, "Old_a1qa_test3@email.com"));
+
             TransactionExample();
         }
+
+        private IEnumerable<Test> ComplexQueryExample(string sql) =>
+            MyDbConnector.GetConnection().Query<Test, Author, Test>(sql, (test, author) =>
+            {
+                test.Author = author;
+                return test;
+            });
 
         private void TransactionExample()
         {
