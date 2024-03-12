@@ -10,8 +10,9 @@ namespace Common.Configurations
         private static ConfigurationModel _configModel =>
             JsonParser<ConfigurationModel>.Parse(FileReader.ReadAllText(PathToFiles.ConfigurationFile));
 
-        public static string ConnectionString => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("connectionString"))
-                                                 ? Environment.GetEnvironmentVariable("connectionString")
-                                                 : _configModel.ConnectionString;
+        public static string ConnectionString => 
+            !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("connectionString"))
+            ? Environment.GetEnvironmentVariable("connectionString")
+            : _configModel.ConnectionString;
     }
 }

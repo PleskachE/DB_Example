@@ -4,6 +4,7 @@ using DapperExample.Utils;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DapperExample
 {
@@ -14,6 +15,10 @@ namespace DapperExample
         {
             var sql = "SELECT * FROM test JOIN author ON test.author_id = author.id WHERE author.email = '{0}' ORDER BY test.name, author.email;";
             var tests = ComplexQueryExample(string.Format(sql, "Old_a1qa_test3@email.com"));
+
+            tests.ToList().Add(new Test() { });
+            var a = new Author();
+            tests.ToList().ForEach(x => x.Author = a);
 
             TransactionExample();
         }

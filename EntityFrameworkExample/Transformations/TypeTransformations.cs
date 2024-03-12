@@ -1,5 +1,4 @@
 ﻿using EntityFrameworkExample.Models.DbModels;
-using EntityFrameworkExample.Utils;
 using TechTalk.SpecFlow;
 
 namespace EntityFrameworkExample.Transformations
